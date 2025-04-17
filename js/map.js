@@ -15,7 +15,7 @@
 
     <script>
       function initMap() {
-        const location = { lat: 40.7128, lng: -74.0060 }; 
+        const location = { lat:}; 
         const map = new google.maps.Map(document.getElementById("map"), {
           zoom: 12,
           center: location,
@@ -29,7 +29,7 @@
     </script>
 
     <script async
-      src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+      src=
     </script>
   </body>
 </html>
