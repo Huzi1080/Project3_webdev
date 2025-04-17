@@ -10,7 +10,7 @@
     </style>
   </head>
   <body>
-    <h1>Our Location</h1>
+    <h1>Our Lcoation</h1>
     <div id="map"></div>
 
     <script>
