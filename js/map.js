@@ -15,7 +15,7 @@ function initMap() {
   });
 
   const infoWindow = new google.maps.InfoWindow({
-    content: "<h3>Chicago!</h3>,
+    content: "<h3>Chicago!</h3>",
   });
 
   marker.addListener("click", () => {
@@ -42,4 +42,5 @@ function initMap() {
     });
   });
 }
+``
 
