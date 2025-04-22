@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>My Map</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="map.js"></script>
     <style>
       #map {
         height: 100vh;
@@ -11,12 +13,11 @@
     </style>
   </head>
   <body>
-    
-     <ul class="directory">
+    <ul class="directory">
       <li><a href="homepage.html">Home</a></li>
       <li><a href="hobbies.html">Hobbies</a></li>
       <li><a href="index.html">Resume</a></li>
-       <li><a href="map.html">Map</a></li>
+      <li><a href="map.html">Map</a></li>
     </ul>
 
     <h1 style="text-align: center;">Location</h1>
@@ -25,23 +26,7 @@
     <script
       async
       defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAe3gs4EaSLgkVoh4A4NJ9HUXRdphEDfwQ">
-    </script>
-
-    <script>
-      function initMap() {
-        const myLocation = { lat: 40.7128, lng: -74.0060 }; // Example: New York
-        const map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 12,
-          center: myLocation,
-        });
-
-        new google.maps.Marker({
-          position: myLocation,
-          map: map,
-          title: "My Location!",
-        });
-      }
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAe3gs4EaSLgkVoh4A4NJ9HUXRdphEDfwQ&callback=initMap">
     </script>
   </body>
 </html>
