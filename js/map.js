@@ -1,6 +1,7 @@
 function initMap() {
   const location = { lat: 41.8781, lng: -87.6298 };
 
+  // Initialize the map
   const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 12,
     center: location,
@@ -21,6 +22,7 @@ function initMap() {
     infoWindow.open(map, marker);
   });
 
+  // Circle around the location
   new google.maps.Circle({
     strokeColor: "#FF0000",
     strokeOpacity: 0.8,
@@ -38,8 +40,15 @@ function initMap() {
       map: map,
       title: "You clicked here!",
     });
-    const input = document.getElementById("search-box");
+  });
+
+  
+  //Search Box 
+
+  // Get the search box input element
+  const input = document.getElementById("search-box");
   const searchBox = new google.maps.places.SearchBox(input);
+
   map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
   map.addListener("bounds_changed", () => {
@@ -71,3 +80,4 @@ function initMap() {
     map.fitBounds(bounds);
   });
 }
+
