@@ -15,7 +15,7 @@ function initMap() {
   });
 
   const infoWindow = new google.maps.InfoWindow({
-    content: "<h3>Welcome to Chicago!</h3><p>The Windy City 🏙️</p>",
+    content: "<h3>Chicago!</h3>,
   });
 
   marker.addListener("click", () => {
