@@ -46,38 +46,38 @@ function initMap() {
   //Search Box 
 
   // Get the search box input element
-  const input = document.getElementById("search-box");
-  const searchBox = new google.maps.places.SearchBox(input);
+  // const input = document.getElementById("search-box");
+  // const searchBox = new google.maps.places.SearchBox(input);
 
-  map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+  // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
-  map.addListener("bounds_changed", () => {
-    searchBox.setBounds(map.getBounds());
-  });
+  // map.addListener("bounds_changed", () => {
+  //   searchBox.setBounds(map.getBounds());
+  // });
 
-  searchBox.addListener("places_changed", () => {
-    const places = searchBox.getPlaces();
-    if (places.length === 0) return;
+  // searchBox.addListener("places_changed", () => {
+  //   const places = searchBox.getPlaces();
+  //   if (places.length === 0) return;
 
-    const bounds = new google.maps.LatLngBounds();
+  //   const bounds = new google.maps.LatLngBounds();
 
-    places.forEach((place) => {
-      if (!place.geometry || !place.geometry.location) return;
+  //   places.forEach((place) => {
+  //     if (!place.geometry || !place.geometry.location) return;
 
-      new google.maps.Marker({
-        map: map,
-        title: place.name,
-        position: place.geometry.location,
-      });
+  //     new google.maps.Marker({
+  //       map: map,
+  //       title: place.name,
+  //       position: place.geometry.location,
+  //     });
 
-      if (place.geometry.viewport) {
-        bounds.union(place.geometry.viewport);
-      } else {
-        bounds.extend(place.geometry.location);
-      }
-    });
+  //     if (place.geometry.viewport) {
+  //       bounds.union(place.geometry.viewport);
+  //     } else {
+  //       bounds.extend(place.geometry.location);
+  //     }
+  //   });
 
-    map.fitBounds(bounds);
+  //   map.fitBounds(bounds);
   });
 }
 
