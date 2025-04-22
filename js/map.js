@@ -9,6 +9,6 @@ function initMap() {
   new google.maps.Marker({
     position: location,
     map: map,
-    title: "Chicago",
+    title: "Chicago!!",
   });
 }
