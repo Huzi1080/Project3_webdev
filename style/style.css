@@ -217,5 +217,45 @@ a:hover {
     justify-content: center;
     gap: 2rem;
   }
+
+  .slider {
+  position: relative;
+  max-width: 600px;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 10px;
 }
+
+.slide {
+  display: none;
+  width: 100%;
+  height: auto;
+}
+
+.slide.active {
+  display: block;
+}
+
+.slider button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.slider .prev {
+  left: 10px;
+}
+
+.slider .next {
+  right: 10px;
+}
+  }
+
 
