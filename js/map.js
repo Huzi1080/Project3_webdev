@@ -1,7 +1,5 @@
 function initMap() {
   const location = { lat: 41.8781, lng: -87.6298 };
-
-  // Initialize the map
   const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 12,
     center: location,
@@ -22,7 +20,6 @@ function initMap() {
     infoWindow.open(map, marker);
   });
 
-  // Circle around the location
   new google.maps.Circle({
     strokeColor: "#FF0000",
     strokeOpacity: 0.8,
@@ -33,7 +30,7 @@ function initMap() {
     center: location,
     radius: 3000,
   });
-
+  
   map.addListener("click", (e) => {
     new google.maps.Marker({
       position: e.latLng,
@@ -41,6 +38,40 @@ function initMap() {
       title: "You clicked here!",
     });
   });
+
+  // Search Box Integration 
+  const input = document.getElementById("search-box");
+  const searchBox = new google.maps.places.SearchBox(input);
+
+  map.addListener("bounds_changed", () => {
+    searchBox.setBounds(map.getBounds());
+  });
+
+  searchBox.addListener("places_changed", () => {
+    const places = searchBox.getPlaces();
+    if (places.length === 0) return;
+
+    const bounds = new google.maps.LatLngBounds();
+
+    places.forEach((place) => {
+      if (!place.geometry || !place.geometry.location) return;
+
+      // Add marker 
+      new google.maps.Marker({
+        map,
+        position: place.geometry.location,
+        title: place.name,
+      });
+      
+      if (place.geometry.viewport) {
+        bounds.union(place.geometry.viewport);
+      } else {
+        bounds.extend(place.geometry.location);
+      }
+    });
+
+    map.fitBounds(bounds);
+  });
 }
-``
+
 
